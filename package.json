@@ -31,8 +31,8 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-pluggable",
-  "author": "Aditya Jamuar",
+  "name": "@connect211/react-pluggable",
+  "author": "Chris Short",
   "module": "dist/react-pluggable.esm.js",
   "devDependencies": {
     "@types/react": "^16.9.49",

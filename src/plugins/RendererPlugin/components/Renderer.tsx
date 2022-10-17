@@ -5,7 +5,7 @@ import ComponentUpdatedEvent from '../events/ComponentUpdatedEvent';
 
 export const Renderer: React.SFC<{
   placement: string;
-}> = ({ placement }) => {
+}> = ({ placement, children, ...rest }) => {
   const pluginStore = usePluginStore();
   const forceUpdate = useForceUpdate();
 
@@ -32,10 +32,14 @@ export const Renderer: React.SFC<{
 
   return (
     <>
-      {components.map(
-        (compObject: { component: React.ComponentClass; key: string }) => (
-          <compObject.component key={compObject.key} />
+      {components.length > 0 ? (
+        components.map(
+          (compObject: { component: React.ComponentClass; key: string }) => (
+            <compObject.component key={compObject.key} {...rest} />
+          )
         )
+      ) : (
+        <>{children}</>
       )}
     </>
   );
